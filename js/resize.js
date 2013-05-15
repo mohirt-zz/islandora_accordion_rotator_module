@@ -49,15 +49,43 @@ function update_numblocks() {
   // We need to handle small sized screens with large images...
   if($(window).width() < 320 && numBlocks != 1) {
     numBlocks = 1;
+    if($('#acc_holder').children().length < numBlocks) {
+    empty_form();
+    all_data=[];
+    get_data(current_page);
+    build_form();
+    load_rotator();
+  }
    // barSize = 35;
   } else if($(window).width() < 640 && $(window).width() > 364 && numBlocks != 2) {
     numBlocks = 2;
+    if($('#acc_holder').children().length < numBlocks) {
+    empty_form();
+    all_data=[];
+    get_data(current_page);
+    build_form();
+    load_rotator();
+  }
    // barSize = 70;
   } else if($(window).width() < 1024 && $(window).width() > 640 && numBlocks != 4){
     numBlocks = 4;
-   // barSize = 120;
-  } else if($(window).width() > 1024 && numBlocks != 7){
+    if($('#acc_holder').children().length < numBlocks) {
+    empty_form();
+    all_data=[];
+    get_data(current_page);
+    build_form();
+    load_rotator();
+   }
+    // barSize = 120;
+  } else if($(window).width() > 1024 && numBlocks != 6){
     numBlocks = 6;
+    if($('#acc_holder').children().length < numBlocks) {
+    empty_form();
+    all_data=[];
+    get_data(current_page);
+    build_form();
+    load_rotator();
+   }
    // barSize=135;
   }
 //console.log("barsize: " + barSize);

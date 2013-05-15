@@ -525,6 +525,7 @@ function get_next_page($direction) {
  * @param divbox
  */
 function updateDetails(divbox) {
+  console.log("divbox: " + divbox);
   var children = $('#acc_data').children();
   $(".acc_content").hide()
   $('#' + children[divbox].id).show();

@@ -31,7 +31,7 @@ var page_sentinal = 0;
 function get_data(place) {
   // Set the correct number of blocks to show depending
   // on screensize. This is used in accordion.js calc's.
-  update_numblocks();
+  //update_numblocks();
   var base = window.Drupal.settings.basePath;
   $.ajax({
     url: base + 'accordion_rotator/setup/' + place,
@@ -40,7 +40,7 @@ function get_data(place) {
       all_data = data;
     },
     error: function() {
-        alert("An error populating the Accordion Rotator.");
+        alert("Please Login to site");
     },
     dataType: 'json'
   });
@@ -59,7 +59,7 @@ function build_form() {
   buttonsClass("div.accordion_button");
   
   var total = all_data["content"].length;
-  for(var i = 0;i<6;i++) {
+  for(var i = 0;i<numBlocks;i++) {
     add_image_block((page_sentinal + i) % total);     
   }
   
@@ -96,7 +96,7 @@ function add_image_block(sentinal) {
 function add_detail_block(details,id_num) {
   $('#acc_data').append("<div id='acc_content" + id_num + "' class='acc_content' transitionType='bottom' transitionTime='0.5' distance='30' delay='0' x='0' y='0' alignV='top'></div>");
   $('#acc_content' + id_num).append("<div class='box' id='box" + id_num + "'></div>");
-  $('#box' + id_num).append("<h2 class='acc_title'>" + details.title + "</h2>");
+  $('#box' + id_num).append("<h2 class='acc_title'><a href='" + all_data["content"][id_num].data_link + "'>" + details.title + "</a></h2>");
   $('#box' + id_num).append("<p class='acc_text'>" + details.description + "</p>");
 }
 
@@ -118,7 +118,7 @@ function load_rotator() {
           shadowAlpha:1,
           border:true,
           borderSize:1 ,
-          borderColor:"#242424",
+          borderColor:"#333333",
           transitionTime:0.3,
           autoplay:false,
           autoplayTime:5,

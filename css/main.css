@@ -18,9 +18,8 @@
 	margin: 0px auto ;
 }
 
-#accordion1{
-	margin: 0px auto ;
-	margin-bottom:20px;
+#accordion3{
+	border-right: none !important;
 }
 
 div.example{
